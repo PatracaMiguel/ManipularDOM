@@ -17,13 +17,6 @@ descripcion.style.fontSize = "19px";
 // 2. Agrega un escuchador de eventos (addEventListener) para el clic del botón
 // 3. Captura el valor del input y muéstralo en la consola (console.log)
 
-function guardarInput() {
-    var input = document.getElementById("nueva-tarea").value;
-    console.log(input);
-}
-document.getElementById("btn-agregar").addEventListener("click", guardarInput);
-
-
 // Reto 3: Creación Dinámica de Nodos ---
 // 1. Selecciona el contenedor 'lista-tareas' (el elemento <ul>)
 // 2. Modifica el evento del Reto 2 para que, en lugar de usar console.log:
@@ -31,6 +24,19 @@ document.getElementById("btn-agregar").addEventListener("click", guardarInput);
 //    b) Asigna el texto del input al nuevo 'li' usando .textContent
 //    c) Inserta el 'li' dentro del '<ul>' usando .appendChild()
 //    d) Limpia el valor del input y devuélvele el foco (.focus())
+
+var listaTareas = document.getElementById("lista-tareas");
+
+function guardarInput() {
+    var input = document.getElementById("nueva-tarea");
+    var valor = input.value;
+    var nodo = document.createElement("li");
+    nodo.textContent = valor;
+    listaTareas.appendChild(nodo);
+    input.value = "";
+    input.focus();
+}
+document.getElementById("btn-agregar").addEventListener("click", guardarInput);
 
 
 
