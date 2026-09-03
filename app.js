@@ -38,13 +38,14 @@ function guardarInput() {
 }
 document.getElementById("btn-agregar").addEventListener("click", guardarInput);
 
-
-
 // Reto 4: Eliminación y Delegación de Eventos ---
 // 1. Agrega un escuchador de eventos al contenedor PADRE ('lista-tareas')
 // 2. Utiliza el objeto de evento (e.target) para comprobar si el elemento clickeado es un 'LI'
 // 3. Si es un 'LI', elimínalo del DOM usando el método .remove()
 
-
-
-
+function eliminarLi(e) {
+    if (e.target.tagName === "LI") {
+        e.target.remove();
+    }
+}
+document.getElementById("lista-tareas").addEventListener("click", eliminarLi);
